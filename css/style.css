@@ -1,0 +1,452 @@
+/* ===========================
+   CSS カスタムプロパティ
+=========================== */
+:root {
+  --color-bg: #fdf8f4;
+  --color-surface: #ffffff;
+  --color-primary: #a8c5da;
+  --color-primary-light: #dceef8;
+  --color-accent-green: #b5d5c5;
+  --color-accent-green-light: #e0f0e9;
+  --color-accent-purple: #c9b8d8;
+  --color-accent-purple-light: #ede6f5;
+  --color-accent-peach: #f2c9b8;
+  --color-accent-peach-light: #faeae3;
+  --color-accent-yellow: #f5e6a3;
+  --color-text: #3d3d3d;
+  --color-text-light: #6b6b6b;
+  --color-text-muted: #9a9a9a;
+  --font-main: 'Noto Sans JP', sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --transition: 0.3s ease;
+}
+
+/* ===========================
+   リセット・ベース
+=========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===========================
+   レイアウト
+=========================== */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===========================
+   ヒーローセクション
+=========================== */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #dceef8 0%, #ede6f5 50%, #faeae3 100%);
+  padding: 72px 0 80px;
+  overflow: hidden;
+}
+
+.hero-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+}
+
+.hero-bg-circle--1 {
+  width: 320px;
+  height: 320px;
+  background: var(--color-accent-peach);
+  top: -80px;
+  right: -80px;
+}
+
+.hero-bg-circle--2 {
+  width: 200px;
+  height: 200px;
+  background: var(--color-accent-green);
+  bottom: -60px;
+  left: -40px;
+}
+
+.hero-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+/* プロフィール写真 */
+.profile-photo-wrap {
+  flex-shrink: 0;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.profile-photo-placeholder {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  border: 3px dashed var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: var(--shadow-soft);
+}
+
+.profile-photo-icon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.profile-photo-label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ヒーローテキスト */
+.hero-label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--color-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.hero-name {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.hero-tagline {
+  font-size: 15px;
+  color: var(--color-text-light);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.badge--blue {
+  background: var(--color-primary-light);
+  color: #3a7ca0;
+}
+
+.badge--green {
+  background: var(--color-accent-green-light);
+  color: #3a7a5a;
+}
+
+.badge--purple {
+  background: var(--color-accent-purple-light);
+  color: #6a4a8a;
+}
+
+/* ===========================
+   共通セクション
+=========================== */
+.section {
+  padding: 64px 0;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent-purple) 100%);
+  flex-shrink: 0;
+}
+
+/* ===========================
+   自己紹介
+=========================== */
+.section--bio {
+  background-color: var(--color-surface);
+}
+
+.bio-card {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent-purple-light) 100%);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  box-shadow: var(--shadow-soft);
+}
+
+.bio-text {
+  font-size: 15px;
+  line-height: 2;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.bio-text:last-child {
+  margin-bottom: 0;
+}
+
+.bio-text--emphasis {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3a5a7a;
+  border-top: 1px solid rgba(168, 197, 218, 0.4);
+  padding-top: 20px;
+}
+
+/* ===========================
+   お仕事
+=========================== */
+.section--work {
+  background-color: var(--color-bg);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.work-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 28px 28px 32px;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+.work-card-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.work-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.work-card-body {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.work-card-desc {
+  font-size: 13px;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+.work-card-list {
+  margin-top: 4px;
+}
+
+.work-card-list li {
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.9;
+  padding-left: 16px;
+  position: relative;
+}
+
+.work-card-list li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--color-primary);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* ===========================
+   趣味
+=========================== */
+.section--hobby {
+  background-color: var(--color-surface);
+}
+
+.hobby-list {
+  display: flex;
+  gap: 20px;
+}
+
+.hobby-item {
+  flex: 1;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: 32px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition);
+}
+
+.hobby-item:nth-child(1) { background: var(--color-accent-peach-light); }
+.hobby-item:nth-child(2) { background: var(--color-accent-green-light); }
+.hobby-item:nth-child(3) { background: var(--color-accent-yellow); }
+
+.hobby-item:hover {
+  transform: translateY(-4px);
+}
+
+.hobby-icon {
+  font-size: 44px;
+  margin-bottom: 12px;
+}
+
+.hobby-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ===========================
+   フッター
+=========================== */
+.footer {
+  margin-top: auto;
+  background: linear-gradient(135deg, #dceef8 0%, #ede6f5 100%);
+  padding: 24px;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* ===========================
+   フェードインアニメーション
+=========================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   改行制御
+=========================== */
+.br-pc { display: inline; }
+
+/* ===========================
+   レスポンシブ
+=========================== */
+@media (max-width: 640px) {
+  .hero {
+    padding: 48px 0 56px;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .hero-badges {
+    justify-content: center;
+  }
+
+  .hero-name {
+    font-size: 28px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hobby-list {
+    flex-direction: column;
+  }
+
+  .bio-card {
+    padding: 24px 20px;
+  }
+
+  .br-pc { display: none; }
+}
